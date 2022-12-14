@@ -1,0 +1,25 @@
+{% extends "PizzaApp/base.html" %} 
+{% load static %}
+
+{% block content %}
+<center>
+<h2 style="color:gold;"> Select your Pizza</h2>
+
+<body style="background-image: url('{% static 'pizzaapp/images/pizza_page.jpg' %}'); 
+    background-repeat: no-repeat; background-size: cover">
+
+
+    {% for pizza in all_pizzas %}
+    
+    <p style="color:gold; font-size: xx-large"> 
+       <a style="color:ghostwhite; font-size: xx-large" href="{% url 'PizzaApp:pizza' pizza.id %}"> {{pizza}} </a>
+    </p>
+    
+    {% empty %}
+    <li> No pizzas have been added yet</li>
+    {% endfor %}
+
+</body>
+</center>
+
+{% endblock content %}
